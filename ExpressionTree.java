@@ -42,9 +42,12 @@ public class ExpressionTree {
     return left != null & right != null;
   }
 
-  public String toString() {
-    String output = "";
+  //Actual stuff I'm gonna write________________________________________________
 
-    return output;
+  public String toString() {
+    if (isValue())
+      return "" + getValue();
+
+    return "(" + getLeft().toString() + " " + getOp() + getRight().toString() + ")";
   }
 }
