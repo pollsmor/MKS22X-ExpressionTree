@@ -48,7 +48,7 @@ public class ExpressionTree {
     if (isValue())
       return "" + getValue();
 
-    return "(" + getLeft().toString() + " " + getOp() + getRight().toString() + ")";
+    return "(" + getLeft().toString() + " " + getOp() + " " + getRight().toString() + ")";
   }
 
   public String toStringPostfix() {
@@ -69,6 +69,23 @@ public class ExpressionTree {
     if (isValue())
       return getValue();
 
-    return apply(getOp(), getLeft().evaluate(), getRight.evaluate());
+    return apply(getOp(), getLeft().evaluate(), getRight().evaluate());
+  }
+
+  private double apply(char op, double a, double b) {
+    double result = 0;
+    if (op == '+')
+      result = a + b;
+
+    else if (op == '-')
+        result = a - b;
+
+    else if (op == '*')
+      result = a * b;
+
+    else if (op == '/')
+      result = a / b;
+
+    return result;
   }
 }
