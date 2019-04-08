@@ -50,4 +50,11 @@ public class ExpressionTree {
 
     return "(" + getLeft().toString() + " " + getOp() + getRight().toString() + ")";
   }
+
+  public String toStringPostfix() {
+    if (isValue())
+      return "" + getValue();
+
+    return getLeft().toStringPostfix() + " " + getRight().toStringPostfix() + " " + getOp();
+  }
 }
